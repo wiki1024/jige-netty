@@ -21,11 +21,12 @@ public class JsonLogicDecoder extends MessageToMessageDecoder<String> {
     private static final AtomicInteger atomicInt = new AtomicInteger(0);
 
     protected void decode(ChannelHandlerContext ctx, String msg, List<Object> out) throws Exception {
-        //if (atomicInt.incrementAndGet() > 90) {
-           // System.out.println("Server received " +atomicInt.incrementAndGet() + " at " + new Date());
-      //  System.out.println(msg);
+        int i=atomicInt.incrementAndGet();
+        if ( i> 9990) {
+            System.out.println("Server received " +i + " at " + new Date());
+        System.out.println(msg);
 
-        //}
+        }
         if (msg.startsWith(Constant.MacthAuth)) {
             Auth auth = jsonMapper.readValue(msg, Auth.class);
             out.add(auth);

@@ -41,8 +41,9 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
             }
         }
 
-        if(atomicInt.incrementAndGet()>90) {
-            System.out.println("received "+ "_ " +atomicInt.get()+msg +" at " + new Date());
+        int i=atomicInt.incrementAndGet();
+        if(i>9990) {
+            System.out.println("received "+ "_ " +i+msg +" at " + new Date());
 
         }
 //        System.out.println(responseJson);
